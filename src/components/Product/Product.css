@@ -23,4 +23,9 @@
     border: 2px solid darkblue;
     border-radius: 5px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+.main-button:hover{
+    background-color: rgb(230, 241, 230);
 }
