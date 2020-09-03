@@ -4,10 +4,12 @@ import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../uti
 import fakeData from '../../fakeData';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
+import { Link } from 'react-router-dom';
+
 
 const Review = () => {
     const [cart, setCart] = useState([]);
-
+    
     const handelPlaceOrder = () => {
         setCart([]);
         processOrder();
@@ -44,7 +46,10 @@ const Review = () => {
 
             <div className="cart-container">
             <Cart cart={cart}>
-                <button onClick={handelPlaceOrder} className="main-button">Place Order</button>
+                <Link to="/ship">
+                <button className="main-button"> Order</button>
+                </Link>
+               
             </Cart>
             </div>
            
