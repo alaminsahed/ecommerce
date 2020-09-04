@@ -3,14 +3,26 @@ import Auth from './useAuth';
 
 const Login = () => {
     const auth = Auth();
-    console.log(auth.user);
+    const handelSignIn = () =>{
+        auth.signInWithGoogle()
+        .then (res => {
+            window.location.pathname = "/review";
+        })
+    }
+
+    const handelSignOut = () =>{
+        auth.signOut()
+        .then(res=>{
+            window.location.pathname= "/"
+        })
+    }
    
     return (
         <div>
             <h1>Join the party</h1>
             {
-                auth.user? <button onClick={auth.signOut}>signout</button>:
-                <button onClick={auth.signInWithGoogle}>signin with google</button>
+                auth.user? <button onClick={handelSignOut }>signout</button>:
+                <button onClick={handelSignIn}>signin with google</button>
             }
             
         </div>

@@ -54,7 +54,7 @@ const Auth = () =>{
 
     const signInWithGoogle =() =>{
         const provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
+        return firebase.auth().signInWithPopup(provider)
         .then (res=> {
             const signedInUser = getUser(res.user)
             setUser(signedInUser);
@@ -67,7 +67,7 @@ const Auth = () =>{
         })
     }
     const signOut =  () =>{
-        firebase.auth().signOut()
+        return firebase.auth().signOut()
         .then(res =>{
                setUser(null);
                return true;
